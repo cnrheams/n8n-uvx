@@ -3,7 +3,7 @@ FROM n8nio/n8n:latest
 USER root
 
 # Install necessary system packages
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y \
     curl \
     git \
     build-base \
@@ -12,7 +12,7 @@ RUN apk add --no-cache \
     tar \
     xz \
     util-linux \
-    coreutils \
+    coreutils
 
 # Install Astral uv/uvx and make available system-wide
 RUN curl -Ls https://astral.sh/uv/install.sh | bash && \
