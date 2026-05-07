@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM n8nio/n8n:latest
 
 USER root
 
@@ -21,6 +21,7 @@ RUN curl -Ls https://astral.sh/uv/install.sh | bash && \
     chmod a+rx /usr/local/bin/uv /usr/local/bin/uvx && \
     mkdir -p /data/mcp && \
     chown -R node:node /data/mcp
+
 
 ENV PATH="/usr/local/bin:/root/.local/bin:${PATH}"
 
