@@ -3,17 +3,16 @@ FROM n8nio/n8n:latest
 USER root
 
 # Install necessary system packages
-RUN apt-get update && apt-get install -y \
+RUN apk add --no-cache \
     curl \
     git \
-    build-essential \
+    build-base \
     chromium \
     bash \
     tar \
-    xz-utils \
+    xz \
     util-linux \
-    coreutils && \
-    rm -rf /var/lib/apt/lists/*
+    coreutils \
 
 # Install Astral uv/uvx and make available system-wide
 RUN curl -Ls https://astral.sh/uv/install.sh | bash \
